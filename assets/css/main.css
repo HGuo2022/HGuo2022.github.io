@@ -183,6 +183,10 @@ input, select, textarea {
 		max-width: 100%;
 		width: 1400px;
 	}
+		.skill-text {
+			white-space: pre-line;
+			text-align: center;
+		}
 
 		.container.medium {
 			width: 1050px;
@@ -245,10 +249,7 @@ input, select, textarea {
 				.container.medium {
 					width: 100%;
 				}
-			.wrapper p {
-				white-space: pre-line;
-				text-align: center;
-				}
+			
 		}
 
 /* Row */
