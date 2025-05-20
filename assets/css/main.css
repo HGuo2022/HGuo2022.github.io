@@ -187,6 +187,10 @@ input, select, textarea {
 			white-space: pre-line;
 			text-align: center;
 		}
+		.project-text {
+			white-space: pre-line;
+			text-align: left;
+		}
 
 		.container.medium {
 			width: 1050px;
