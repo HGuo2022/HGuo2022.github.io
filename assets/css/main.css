@@ -186,6 +186,7 @@ input, select, textarea {
 		.skill-text {
 			white-space: pre-line;
 			text-align: center;
+			line-height: 1.3em
 		}
 		.project-text {
 			white-space: pre-line;
