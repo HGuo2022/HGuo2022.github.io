@@ -190,6 +190,8 @@ input, select, textarea {
 		.project-text {
 			white-space: pre-line;
 			text-align: left;
+			text-justify: auto;
+			word-spacing: normal;
 		}
 
 		.container.medium {
