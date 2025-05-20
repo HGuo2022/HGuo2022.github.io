@@ -184,10 +184,10 @@ input, select, textarea {
 		width: 1400px;
 	}
 		.skill-text {
-			background: rgba(255, 0, 0, 0.1);
-			white-space: pre-line;
+			/* background: rgba(255, 0, 0, 0.1); */
+			white-space: normal;
 			text-align: center;
-			line-height: 1.3em
+			line-height: 1.4em
 		}
 		.project-text {
 			white-space: pre-line;
