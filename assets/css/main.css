@@ -1909,7 +1909,7 @@ input, select, textarea {
 		overflow: hidden;
 	}
 
-		.slideshow.slide {
+		.slideshow .slide {
 			position: absolute;
 			top: 0; left: 0;
 			width: 100%;
@@ -1921,7 +1921,7 @@ input, select, textarea {
 			z-index: 0;
 		}
 
-		.slideshow.slide.active {
+		.slideshow .slide.active {
 			opacity: 1;
 			z-index: 1;
 		}
