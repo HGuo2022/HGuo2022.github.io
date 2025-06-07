@@ -127,7 +127,12 @@
 								<div class="col-4 col-12-narrower">
 
 									<section>
-										<img src="images\skills/electronics.gif" alt="robotics">
+										<!-- <img src="images\skills/electronics.gif" alt="robotics"> -->
+										<div class="slideshow">
+											<img src="images/skills/electronics1.jpg" class="slide active" />
+											<img src="images/skills/electronics2.jpg" class="slide" />
+											<!-- <img src="images/skills/electronics3.jpg" class="slide" /> -->
+										</div>
 										<header>
 											<h3>Robotics</h3>
 										</header>
@@ -409,6 +414,17 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				document.querySelectorAll('.slideshow').forEach(slideshow => {
+					const slides = slideshow.querySelectorAll('.slide');
+					let index = 0;
+					setInterval(() => {
+					slides[index].classList.remove('active');
+					index = (index + 1) % slides.length;
+					slides[index].classList.add('active');
+					}, 5000);
+				});
+			</script>
 
 	</body>
 </html>
