@@ -414,7 +414,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
+			<!-- <script>
 				document.querySelectorAll('.slideshow').forEach(slideshow => {
 					const slides = slideshow.querySelectorAll('.slide');
 					let index = 0;
@@ -424,7 +424,23 @@
 					slides[index].classList.add('active');
 					}, 5000);
 				});
+			</script> -->
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					document.querySelectorAll('.slideshow').forEach(slideshow => {
+					const slides = slideshow.querySelectorAll('.slide');
+					if (slides.length <= 1) return; // skip if only 1 image
+
+					let index = 0;
+					setInterval(() => {
+						slides[index].classList.remove('active');
+						index = (index + 1) % slides.length;
+						slides[index].classList.add('active');
+					}, 5000);
+					});
+				});
 			</script>
+
 
 	</body>
 </html>
