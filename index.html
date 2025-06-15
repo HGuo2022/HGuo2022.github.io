@@ -235,8 +235,14 @@
 									<section>
 										<a href="#">
 											<div class="slideshow">
-												<img src="images/projects/arm/moveit.mp4" class="slide active" />
-												<img src="images/projects/arm/dope.mp4" class="slide" />
+												<video class="slide" muted playsinline>
+													<source src="images/projects/arm/moveit.mp4" type="video/mp4">
+													Your browser does not support the video tag.
+												</video>
+												<video class="slide" muted playsinline>
+													<source src="images/projects/arm/dope.mp4" type="video/mp4">
+													Your browser does not support the video tag.
+												</video>
 												<!-- <img src="images/projects/" class="slide" /> -->
 											</div>
 										</a>
@@ -333,7 +339,10 @@
 										<a href="#">
 											<div class="slideshow">
 												<img src="images/projects/hud/front.jpg" class="slide active" />
-												<img src="images/projects/hud/demo.mp4" class="slide" />
+												<video class="slide" muted playsinline>
+													<source src="images/projects/hud/demo.mp4" type="video/mp4">
+													Your browser does not support the video tag.
+												</video>
 												<img src="images/projects/hud/back.jpg" class="slide" />
 											</div>
 										</a>
@@ -369,7 +378,7 @@
 										<a href="#">
 											<div class="slideshow">
 												<img src="images/projects/pnp/pnp.jpg" class="slide active" />
-												<video class="slide" autoplay muted loop playsinline>
+												<video class="slide" muted playsinline>
 													<source src="images/projects/pnp/working.mp4" type="video/mp4">
 													Your browser does not support the video tag.
 												</video>												
@@ -490,8 +499,11 @@
 				slideshows.forEach((slideshow) => {
 					const slides = Array.from(slideshow.querySelectorAll(".slide"));
 					let current = 0;
+					let isWaiting = false;
 
 					function showSlide(index) {
+						isWaiting = false;
+
 						slides.forEach((slide, i) => {
 							slide.classList.toggle("active", i === index);
 							if (slide.tagName.toLowerCase() === "video") {
@@ -504,8 +516,10 @@
 
 						if (slide.tagName.toLowerCase() === "video") {
 							slide.play();
-
 							slide.onended = () => {
+								if (isWaiting) return; // prevent double-calls
+								isWaiting = true;
+
 								const duration = slide.duration;
 								const rounded = Math.ceil(duration / 5) * 5;
 								const remaining = (rounded - duration) * 1000;
@@ -526,11 +540,11 @@
 						showSlide(current);
 					}
 
-					// Start this slideshow independently
 					showSlide(current);
 				});
 			});
 			</script>
+
 
 
 
