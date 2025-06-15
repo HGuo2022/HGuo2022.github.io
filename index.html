@@ -468,7 +468,7 @@
 					}, 5000);
 				});
 			</script> -->
-			<script>
+			<!-- <script>
 				window.addEventListener("load", function () {
 					document.querySelectorAll('.slideshow').forEach(slideshow => {
 					const slides = slideshow.querySelectorAll('.slide');
@@ -482,7 +482,51 @@
 					}, 5000);
 					});
 				});
+			</script> -->
+			<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const slides = document.querySelectorAll(".slide");
+				let current = 0;
+
+				function showSlide(index) {
+					slides.forEach((slide, i) => {
+						slide.classList.toggle("active", i === index);
+						if (slide.tagName.toLowerCase() === "video") {
+							slide.pause();
+							slide.currentTime = 0;
+						}
+					});
+
+					const slide = slides[index];
+
+					if (slide.tagName.toLowerCase() === "video") {
+						slide.play();
+
+						slide.onended = () => {
+							const duration = slide.duration;
+							const rounded = Math.ceil(duration / 5) * 5;
+							const remaining = (rounded - duration) * 1000;
+
+							setTimeout(() => {
+								nextSlide();
+							}, remaining);
+						};
+					} else {
+						setTimeout(() => {
+							nextSlide();
+						}, 5000);
+					}
+				}
+
+				function nextSlide() {
+					current = (current + 1) % slides.length;
+					showSlide(current);
+				}
+
+				showSlide(current);
+			});
 			</script>
+
 
 
 
