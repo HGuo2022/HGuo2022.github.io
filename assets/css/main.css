@@ -2230,23 +2230,25 @@ input, select, textarea {
 				border-color: #96dad1 !important;
 			}
 
-		input[type="button"].fit,
-		input[type="submit"].fit,
-		input[type="reset"].fit,
-		button.fit,
-		.button.fit {
-			width: 100%;
-		}
+			.button.copied {
+				background: #5cab9b !important;
+				border-color: #5cab9b !important;
+				color: #fff !important;
+			}
 
-		input[type="button"].small,
-		input[type="submit"].small,
-		input[type="reset"].small,
-		button.small,
-		.button.small {
-			font-size: 0.7em;
-			min-width: 14em;
-			padding: 0.5em 0;
-		}
+			.button.copied .checkmark {
+				display: inline-block;
+				margin-left: 0.5em;
+				font-size: 1.25em;
+				transform: scale(0);
+				animation: pop-check 1.5s ease-out forwards;
+			}
+
+			@keyframes pop-check {
+				0% { transform: scale(0); opacity: 0; }
+				40% { transform: scale(1.8); opacity: 1; }
+				100% { transform: scale(1.4); opacity: 1; }
+			}
 
 /* Wrapper */
 

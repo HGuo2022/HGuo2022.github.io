@@ -207,4 +207,35 @@
 			}
 		});
 
+		var emailCopyTimeout;
+		var originalEmailLabel = 'Email';
+
+		// Copy email to clipboard and show inline copied state
+		$('#email-button').on('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			var $button = $(this);
+
+			function showCopiedState() {
+				$button.addClass('copied');
+				$button.html('Copied <span class="checkmark">✓</span>');
+				clearTimeout(emailCopyTimeout);
+				emailCopyTimeout = setTimeout(function() {
+					$button.removeClass('copied');
+					$button.text(originalEmailLabel);
+				}, 1800);
+			}
+
+			navigator.clipboard.writeText('hguo2022@gmail.com').then(function() {
+				showCopiedState();
+			}).catch(function() {
+				var $temp = $('<textarea>');
+				$('body').append($temp);
+				$temp.val('hguo2022@gmail.com').select();
+				document.execCommand('copy');
+				$temp.remove();
+				showCopiedState();
+			});
+		});
+
 })(jQuery);
