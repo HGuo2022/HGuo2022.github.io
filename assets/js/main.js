@@ -30,9 +30,7 @@
 	// Scrolly.
 		$('.scrolly').scrolly({
 			speed: 1000,
-			offset: function() { return $header.height() + 10; }
-		});
-
+		offset: function() { return $header.length ? $header.height() + 10 : 0; }
 	// Dropdowns.
 		$('#nav > ul').dropotron({
 			mode: 'fade',
