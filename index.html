@@ -11,6 +11,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/lightbox.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<meta name="color-scheme" content="sRGB">
 	</head>
@@ -220,7 +221,7 @@
 										<a href="#">
 											<div class="slideshow">
 												<img src="images/projects/rm/inf3sw.jpg" class="slide active" />
-												<img src="images/projects/rm/inf3sw.jpg" class="slide" />
+												<img src="images/projects/rm/inf3.jpg" class="slide" />
 												<img src="images/projects/rm/inf2.jpg" class="slide" />
 												<img src="images/projects/rm/inf5.jpg" class="slide" />
 												<img src="images/projects/rm/team.jpg" class="slide" />
@@ -459,6 +460,22 @@
 
 				</footer>
 
+		</div>
+
+		<!-- Lightbox Modal -->
+		<div id="lightbox" class="lightbox">
+			<div class="lightbox-overlay"></div>
+			<div class="lightbox-container">
+				<button class="lightbox-close">&times;</button>
+				<button class="lightbox-arrow lightbox-prev">&#10094;</button>
+				<div class="lightbox-content">
+					<img id="lightbox-img" src="" alt="" style="display:none;" />
+					<video id="lightbox-video" autoplay muted playsinline style="display:none;">
+						<source id="lightbox-source" src="" type="video/mp4">
+					</video>
+				</div>
+				<button class="lightbox-arrow lightbox-next">&#10095;</button>
+			</div>
 		</div>
 
 		<!-- Scripts -->
